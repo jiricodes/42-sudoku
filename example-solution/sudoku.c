@@ -6,7 +6,7 @@
 /*   By: jnovotny <jnovotny@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 12:41:26 by jnovotny          #+#    #+#             */
-/*   Updated: 2021/08/23 16:52:21 by jnovotny         ###   ########.fr       */
+/*   Updated: 2021/08/23 22:15:11 by jnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,18 +83,56 @@ static void print_sudoku(int (*grid)[SUDOKU_SIZE]) {
 	}
 }
 
+/*
+** @brief	Checks validity of the current state
+** 
+** 
+** @return	int  1 if valid else 0
+*/
+
 static int is_solution(int (*grid)[SUDOKU_SIZE]) {
 	int column;
 	int row;
 	int used_numbers; //holds bit values 
 
 	//check rows
+	used_numbers = 0;
+	row = 0;
+	while (row < SUDOKU_SIZE) {
+		column = 0;
+		while (column < SUDOKU_SIZE) {
+			if ( grid[row][column] == 0 || used_numbers & (1 << grid[row][column]))
+				return (0);
+			used_numbers |= 1 << grid[row][column];
+			column++;
+		}
+		used_numbers = 0;
+		row++;
+	}
+
 	//check columns
+	used_numbers = 0;
+	column = 0;
+	while (column < SUDOKU_SIZE) {
+		row = 0;
+		while (row < SUDOKU_SIZE) {
+			if ( grid[row][column] == 0 || used_numbers & (1 << grid[row][column]))
+				return (0);
+			used_numbers |= 1 << grid[row][column];
+			row++;
+		}
+		used_numbers = 0;
+		column++;
+	}
+	return (1);
 }
 
 
 static int solve(int (*grid)[SUDOKU_SIZE]) {
-
+	while (!is_solution(grid)) {
+		
+	}
+	return (1);
 }
 
 int main(int argc, char **argv) {
