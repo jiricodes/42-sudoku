@@ -9,3 +9,7 @@ Contain the subject pdf as well as some links
 
 ## tests
 Test suite
+```
+cd tests
+make test SUDOKU=path_to_binary
+```
