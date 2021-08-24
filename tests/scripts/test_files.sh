@@ -11,14 +11,13 @@ for f in $INPUTS/*
 do
 	fname=$(basename "$f")
 	args=$(cat $f)
-	echo -ne "$fname: \t"
 	./$SUDOKU $args > $OUTPUTS/$fname 2>&1
 	diff=$(diff $OUTPUTS/$fname $EXPECT/$fname)
 	if [ -z "$diff" ]
 	then
-		echo "OK"
+		printf "%-56s OK\n" $fname
 	else
-		echo "KO"
+		printf "%-56s FAILED\n" $fname
 		echo "$diff" > $OUTPUTS/${fname}_diff 
 	fi
 done
