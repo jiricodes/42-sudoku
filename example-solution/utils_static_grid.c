@@ -6,11 +6,12 @@
 /*   By: jnovotny <jnovotny@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 11:50:04 by jnovotny          #+#    #+#             */
-/*   Updated: 2021/08/24 12:09:16 by jnovotny         ###   ########.fr       */
+/*   Updated: 2021/08/24 18:24:19 by jnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sudoku.h"
+#include <stdio.h>
 
 /*
 ** @brief	Checks validity of the current state for solution
@@ -100,13 +101,13 @@ int is_candidate(int (*grid)[SUDOKU_SIZE], int row, int column, int value) {
 	// check column
 	r = 0;
 	while (r < SUDOKU_SIZE) {
-		if (value == grid[row][c])
+		if (value == grid[r][column])
 			return (0);
 		r++;
 	}
 
 	// check box
-	box = (row / 3) * 3 + (column % 3);
+	box = (row / 3) * 3 + (column / 3);
 	r = (box / 3) * 3;
 	while (r < ((box / 3) * 3) + 3) {
 		c = (box % 3) * 3;

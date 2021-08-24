@@ -6,7 +6,7 @@
 #    By: jnovotny <jnovotny@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/23 12:44:12 by jnovotny          #+#    #+#              #
-#    Updated: 2021/08/24 17:02:24 by jnovotny         ###   ########.fr        #
+#    Updated: 2021/08/24 17:17:43 by jnovotny         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,14 +38,14 @@ test:
 	./$(TARGET) "536827941" "172964358" "894153267" "715349826" "643782195" "928516734" "481295673" "369471582" "257638419"
 
 unittest:
-	make -C tests
+	make -C ../tests
 
 clean:
 	@rm -f *.o
-	@make -C tests clean
+	@make -C ../tests clean
 
 fclean: clean
 	@rm -f $(TARGET)
-	@make -C tests fclean
+	@make -C ../tests fclean
 
 re: fclean all
