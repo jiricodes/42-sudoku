@@ -3,12 +3,16 @@ Sudoku solver is one of the 42 piscine's team project. This is reference solutio
 
 ## example-solution
 Contains a Sudoku solver with recursive approach
+```
+make
+```
+
 
 ## resources
-Contain the subject pdf as well as some links
+Contains the subject pdf as well as some links
 
 ## tests
-Test suite
+Test suite with bunch of solvable and error inputs.
 ```
 cd tests
 make test SUDOKU=path_to_binary
