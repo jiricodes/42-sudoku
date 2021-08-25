@@ -33,14 +33,3 @@ cd tests
 make
 ```
 which uses the example-solution to run tests.
-
-
-
- TODO
- Error management 2.0
- - [ ] add test containing incorrect solution
- - [ ] add test containing grid with multiple solutions
- 
- Consider in general
- - [ ] leaks test
- - [ ] speed test

@@ -158,6 +158,8 @@ echo "*** FEATURES ***************************************************"
 # Functionality tests
 echo ""
 echo "Functionality tests"
+title="Error management 2.0"
+$TESTFILES $TARGET $BASEDIR/../inputs/features $BASEDIR/../expected/features
 
 # Explanations
 echo ""
