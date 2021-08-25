@@ -53,3 +53,5 @@ dkms.conf
 
 .vscode/
 example-solution/rush-1
+tests/outputs/
+tests/tmp/
