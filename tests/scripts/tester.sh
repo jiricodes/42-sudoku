@@ -1,5 +1,9 @@
 #! /bin/bash
 
+# needed for correct tput functionality with every pass
+tput reset
+tput init
+
 TARGET_DIR=$1
 
 TMP_DIR=tmp
@@ -10,6 +14,19 @@ TARGET=$TMP_DIR/rush-1
 OK='\033[0;32mOK\033[0m'
 FAILED='\033[0;31mFAILED\033[0m'
 
+echo "################################################################"
+echo "#                                                              #"
+echo "#    SUDOKU TESTER                                             #"
+echo "#                                                              #"
+echo "#       Designed for 42 piscine rush-01 evaluations.           #"
+echo "#       Issues and PRs are welcome at                          #"
+echo "#       https://github.com/jiricodes/42-sudoku                 #"
+echo "#                                                              #"
+echo "#                                                              #"
+echo "#                            Made by jiricodes.com (2021)      #"
+echo "#                                                              #"
+echo "################################################################"
+echo ""
 
 # prereqs
 os=$(uname)
@@ -22,6 +39,39 @@ then
 		exit
 	fi
 fi
+
+# GROUP: Preliminary tests
+echo "PRELIMINARIES"
+echo ""
+echo "Simple"
+
+# Team present
+title="Whole group present"
+tput sc
+while true
+do
+	read -p "Is the whole team present? (y/n): " ret
+	case $ret in
+		[Yy]* ) tput rc; tput ed; printf "%-56s $OK\n" "$title"; break;;
+		[Nn]* ) tput rc; tput ed; printf "%-56s $FAILED\n" "$title"; break ;;
+		* ) echo -n "Please answer y/n. ";;
+	esac
+done
+
+# Check files
+title="Files in repository"
+tput sc
+echo "Here is list of files in given directory:"
+ls -a $TARGET_DIR
+while true
+do
+	read -p "Are all files correct? (y/n): " ret
+	case $ret in
+		[Yy]* ) tput rc; tput ed; printf "%-56s $OK\n" "$title"; break;;
+		[Nn]* ) tput rc; tput ed; printf "%-56s $FAILED\n" "$title"; break ;;
+		* ) echo -n "Please answer y/n. ";;
+	esac
+done
 
 # norm test
 norm_ver=$(norminette --version)
@@ -51,7 +101,69 @@ else
 	exit
 fi
 
+# Error inputs
+echo ""
+echo "Preliminary tests"
+# A badly formatted grid
+title="A badly formatted grid"
+ret=$(./$TARGET "9..7...." "2...9..53" ".6..124.." "84...1.9." "5.....8.." ".31..4..." "..37..68." ".9..5.741" "47......." 2>&1)
+if [ "$ret" == "Error" ]
+then
+	printf "%-56s $OK\n" "$title"
+else
+	printf "%-56s $FAILED\n" "$title"
+	exit
+fi
+
+# A wrong grid
+title="A wrong grid"
+ret=$(./$TARGET "9...7...." "2...9..53" ".6..124.." "84...1.9." "5.....8.." ".31..4..." "..37..68." ".9..5.741" 2>&1)
+if [ "$ret" == "Error" ]
+then
+	printf "%-56s $OK\n" "$title"
+else
+	printf "%-56s $FAILED\n" "$title"
+	exit
+fi
+
+# A grid with bad characters
+title="A grid with bad characters"
+ret=$(./$TARGET "9.,.7...." "2...9..53" ".6..124.." "84...1.9." "5.....8.." ".31..4..." "..37..68." ".9..5.741" "47......." 2>&1)
+if [ "$ret" == "Error" ]
+then
+	printf "%-56s $OK\n" "$title"
+else
+	printf "%-56s $FAILED\n" "$title"
+	exit
+fi
+
+# A grid with too many or too few boxes
+title="A grid with too many or too few boxes"
+ret=$(./$TARGET "9...7...." "2...9..53" ".6..124.." "84...1.9." "5.....8.." ".31..4..." "..37..68." ".9..5.741" 2>&1)
+if [ "$ret" == "Error" ]
+then
+	printf "%-56s $OK\n" "$title"
+else
+	printf "%-56s $FAILED\n" "$title"
+	exit
+fi
+
+# features
+echo ""
+echo "FEATURES"
+
+# Functionality tests
+echo ""
+echo "Functionality tests"
+
+
+# extras
+echo ""
+echo "EXTRAS"
+
 # leaks
+echo ""
+echo "Leak"
 title="Memory Leaks"
 if [ "$os" == "Linux" ]
 then

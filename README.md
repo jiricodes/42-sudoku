@@ -18,10 +18,23 @@ Test suite with norminette, compilation, leaks and multiple input tests (errors,
 
 Requires norminette and (if Linux) valgrind.
 
+### Usage
+It is recommended to open new terminal, since first command of the script is `tput reset`, that clears the whole terminal window (including history).
+
 ```
 cd tests
-make test SUDOKU=project_path
+make SUDOKU=project_path
 ```
+
+or
+
+```
+cd tests
+make
+```
+which uses the example-solution to run tests.
+
+
 
  TODO
  Error management 2.0

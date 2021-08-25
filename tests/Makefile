@@ -6,7 +6,7 @@
 #    By: jnovotny <jnovotny@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/24 11:46:53 by jnovotny          #+#    #+#              #
-#    Updated: 2021/08/25 15:09:32 by jnovotny         ###   ########.fr        #
+#    Updated: 2021/08/25 15:57:07 by jnovotny         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ unittest: build
 
 test:
 	@mkdir -p $(TEST_OUT_DIR)
-	./scripts/tester.sh $(SUDOKU)
+	@./scripts/tester.sh $(SUDOKU)
 
 clean:
 	@rm -f *.o
