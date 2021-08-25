@@ -218,6 +218,11 @@ echo ""
 echo "Errors"
 $TESTFILES $TARGET $BASEDIR/../inputs/extras_errors $BASEDIR/../expected/extras_errors
 
+# solvable
+echo ""
+echo "Solvable"
+$TESTFILES $TARGET $BASEDIR/../inputs/extras_solvable $BASEDIR/../expected/extras_solvable
+
 
 # leaks
 echo ""
