@@ -178,7 +178,7 @@ while true
 do
 	read -p "Were you satisfied with provided explanations? (y/n): " ret
 	case $ret in
-		[Yy]* ) tput cuu $i; tput ed; printf "%-56s $OK $i\n" "$title"; break;;
+		[Yy]* ) tput cuu $i; tput ed; printf "%-56s $OK\n" "$title"; break;;
 		[Nn]* ) tput cuu $i; tput ed; printf "%-56s $FAILED\n" "$title"; break ;;
 		* ) ((i=i+1)); echo -n "Please answer y/n. ";;
 	esac
@@ -188,6 +188,19 @@ done
 echo ""
 echo "Error management 2.0"
 title="Error management 2.0"
+
+# Continue prompt
+echo ""
+i=2
+while true
+do
+	read -p "Would you like to run extra tests? (y/n): " ret
+	case $ret in
+		[Yy]* ) tput cuu $i; tput ed; break;;
+		[Nn]* ) tput cuu $i; tput ed; exit ;;
+		* ) ((i=i+1)); echo -n "Please answer y/n. ";;
+	esac
+done
 
 # extras
 echo ""
