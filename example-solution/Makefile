@@ -6,7 +6,7 @@
 #    By: jnovotny <jnovotny@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/23 12:44:12 by jnovotny          #+#    #+#              #
-#    Updated: 2021/08/24 21:11:11 by jnovotny         ###   ########.fr        #
+#    Updated: 2021/08/25 21:51:37 by jnovotny         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ TARGET=rush-1
 
 .PHONY: all re clean fclean build run-example
 
-all: build run-example test
+all: build run-example
 
 build:
 	$(CC) $(CFLAGS) -o $(TARGET) *.c

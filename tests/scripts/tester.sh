@@ -244,3 +244,21 @@ else
 	printf "%-56s $FAILED\n" "$title"
 	exit
 fi
+
+# Continue prompt
+echo ""
+i=2
+while true
+do
+	read -p "Would you like to run extra hard tests? This may take a while (y/n): " ret
+	case $ret in
+		[Yy]* ) tput cuu $i; tput ed; break;;
+		[Nn]* ) tput cuu $i; tput ed; exit ;;
+		* ) ((i=i+1)); echo -n "Please answer y/n. ";;
+	esac
+done
+
+#hard
+echo ""
+echo "Extra hard tests"
+$TESTFILES $TARGET $BASEDIR/../inputs/hard $BASEDIR/../expected/hard
