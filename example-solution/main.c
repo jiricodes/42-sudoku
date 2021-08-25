@@ -6,16 +6,18 @@
 /*   By: jnovotny <jnovotny@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 11:48:18 by jnovotny          #+#    #+#             */
-/*   Updated: 2021/08/24 11:48:25 by jnovotny         ###   ########.fr       */
+/*   Updated: 2021/08/25 14:30:21 by jnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sudoku.h"
 
-int main(int argc, char **argv) {
-	// in C there is technically no memory difference between single int array with size [X * X]
+// in C there is technically no memory difference between single int array with size [X * X]
 	// and 2d array with [X][X]. Neither it should affect compute performance. In other languages
 	// this may be untrue.
+
+int main(int argc, char **argv)
+{
 	int	grid[SUDOKU_SIZE][SUDOKU_SIZE];
 	int ret;
 

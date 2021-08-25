@@ -6,13 +6,13 @@
 #    By: jnovotny <jnovotny@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/24 11:46:53 by jnovotny          #+#    #+#              #
-#    Updated: 2021/08/24 18:44:55 by jnovotny         ###   ########.fr        #
+#    Updated: 2021/08/25 15:09:32 by jnovotny         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 TARGET=example_unittest
 
-SUDOKU?=../example-solution/rush-1
+SUDOKU?=../example-solution/
 
 CC=gcc
 
@@ -22,6 +22,7 @@ SRCS=../example-solution/utils_static_grid.c \
 	 example-unittest.c \
 
 TEST_OUT_DIR=outputs
+TEST_TMP_DIR=tmp
 
 .PHONY: all test build unittest clean fclean re
 
@@ -35,11 +36,11 @@ unittest: build
 
 test:
 	@mkdir -p $(TEST_OUT_DIR)
-	./scripts/test_files.sh $(SUDOKU)
+	./scripts/tester.sh $(SUDOKU)
 
 clean:
 	@rm -f *.o
-	@rm -r $(TEST_OUT_DIR)
+	@rm -r $(TEST_OUT_DIR) $(TEST_TMP_DIR)
 
 fclean:
 	@rm -f $(TARGET)

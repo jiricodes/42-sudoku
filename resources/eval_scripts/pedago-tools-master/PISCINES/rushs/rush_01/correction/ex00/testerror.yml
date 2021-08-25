@@ -1,0 +1,31 @@
+unit: custom
+
+user_directory: ex00
+ref_directory: .
+
+compile_user: True
+
+compile_ref: True
+
+white_list:
+    - write
+    - malloc
+    - free
+
+user_files:
+    - "*.c"
+    - "*.h"
+
+ref_files:
+    - check.c
+    - check.h
+    - env.h
+    - error.c
+    - error.h
+    - find_solution.c
+    - find_solution.h
+    - init.c
+    - init.h
+    - main.c
+
+common_files:
