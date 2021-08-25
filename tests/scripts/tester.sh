@@ -62,7 +62,7 @@ else
 	ret=$(tail -n 2 $TMP_DIR/leaks | grep -i "error summary" | awk '{ print $3 }')
 fi
 
-if [ "$ret" -eq "0" ]
+if [ "$ret" == "0" ]
 then
 	printf "%-56s $OK\n" "$title"
 else
