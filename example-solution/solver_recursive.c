@@ -6,7 +6,7 @@
 /*   By: jnovotny <jnovotny@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 11:49:05 by jnovotny          #+#    #+#             */
-/*   Updated: 2021/08/24 16:49:06 by jnovotny         ###   ########.fr       */
+/*   Updated: 2021/08/25 21:00:51 by jnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int solve_recursive(int (*grid)[SUDOKU_SIZE]) {
 	current_val = 1;
 	find_first_zero(grid, &current_row, &current_col);
 	if (current_row == SUDOKU_SIZE || current_col == SUDOKU_SIZE)
-		return (0);
+		return (1);
 	while (current_val <= 9) {
 		if (is_candidate(grid, current_row, current_col, current_val)) {
 			grid[current_row][current_col] = current_val;

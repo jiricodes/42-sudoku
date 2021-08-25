@@ -11,6 +11,9 @@ mkdir -p $TMP_DIR
 
 TARGET=$TMP_DIR/rush-1
 
+BASEDIR=$(dirname "$0")
+TESTFILES=./$BASEDIR/test_files.sh
+
 OK='\033[0;32mOK\033[0m'
 FAILED='\033[0;31mFAILED\033[0m'
 
@@ -188,6 +191,8 @@ done
 echo ""
 echo "Error management 2.0"
 title="Error management 2.0"
+$TESTFILES $TARGET $BASEDIR/../inputs/error_management_2 $BASEDIR/../expected/error_management_2
+
 
 # Continue prompt
 echo ""
@@ -205,6 +210,12 @@ done
 # extras
 echo ""
 echo "*** EXTRAS *****************************************************"
+
+# errors
+echo ""
+echo "Errors"
+$TESTFILES $TARGET $BASEDIR/../inputs/extras_errors $BASEDIR/../expected/extras_errors
+
 
 # leaks
 echo ""

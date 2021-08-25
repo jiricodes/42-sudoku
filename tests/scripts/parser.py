@@ -1,6 +1,8 @@
 #! /usr/bin/python3
 
 import sys
+import os
+
 def parse_input(input):
 	pass
 
@@ -14,8 +16,11 @@ def read_lines(filename):
 	return lines
 
 def main():
-	filename=sys.argv[1]
-	mode=sys.argv[2]
+	input_file=sys.argv[1]
+	output_file=sys.argv[2]
+
+	try:
+
 
 	raw_input=read_lines(filename)
 	if mode == "in":

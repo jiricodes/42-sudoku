@@ -8,6 +8,9 @@ INPUTS=$2
 EXPECT=$3
 OUTPUTS=$BASEDIR/../outputs
 
+OK='\033[0;32mOK\033[0m'
+FAILED='\033[0;31mFAILED\033[0m'
+
 for f in $INPUTS/*
 do
 	fname=$(basename "$f")
@@ -16,9 +19,9 @@ do
 	diff=$(diff $OUTPUTS/$fname $EXPECT/$fname)
 	if [ -z "$diff" ]
 	then
-		printf "%-56s OK\n" $fname
+		printf "%-56s $OK\n" $fname
 	else
-		printf "%-56s FAILED\n" $fname
+		printf "%-56s $FAILED\n" $fname
 		echo "$diff" > $OUTPUTS/${fname}_diff 
 	fi
 done
