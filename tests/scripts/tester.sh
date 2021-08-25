@@ -41,7 +41,7 @@ then
 fi
 
 # GROUP: Preliminary tests
-echo "PRELIMINARIES"
+echo "*** PRELIMINARIES **********************************************"
 echo ""
 echo "Simple"
 
@@ -150,16 +150,48 @@ fi
 
 # features
 echo ""
-echo "FEATURES"
+echo "*** FEATURES ***************************************************"
 
 # Functionality tests
 echo ""
 echo "Functionality tests"
 
+# Explanations
+echo ""
+echo "Explanations part"
+title="Explanations"
+echo "All members should know the code as a whole and explain"
+echo "their work in detail. The grade is based on the worst answer."
+echo "Ask following questions:"
+echo "  - (No code) What's the algorithm? How it works?"
+echo "  - If bit manipulation present, please explain"
+echo "  - Explain some complex lines of code"
+echo "  - Ask the team what recursion is"
+echo "  - What's the programs return value when sudoku is filled?"
+echo "  - When is the sudoku unsolvable? Invalid?"
+echo "  - Check and break malloc protections"
+echo "  - etc."
+echo ""
+
+i=13
+while true
+do
+	read -p "Were you satisfied with provided explanations? (y/n): " ret
+	case $ret in
+		[Yy]* ) tput cuu $i; tput ed; printf "%-56s $OK $i\n" "$title"; break;;
+		[Nn]* ) tput cuu $i; tput ed; printf "%-56s $FAILED\n" "$title"; break ;;
+		* ) ((i=i+1)); echo -n "Please answer y/n. ";;
+	esac
+done
+
+# Errors 2.0
+echo ""
+echo "Error management 2.0"
+title="Error management 2.0"
 
 # extras
 echo ""
-echo "EXTRAS"
+echo "*** EXTRAS *****************************************************"
 
 # leaks
 echo ""

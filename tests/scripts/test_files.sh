@@ -1,10 +1,11 @@
 #! /bin/bash
-# takes sudoku binary as an argument
+# takes sudoku binary, test files input and expected folders as arguments
+# assumes ex
 SUDOKU=$1
 BASEDIR=$(dirname "$0")
 
-INPUTS=$BASEDIR/../inputs
-EXPECT=$BASEDIR/../expected
+INPUTS=$2
+EXPECT=$3
 OUTPUTS=$BASEDIR/../outputs
 
 for f in $INPUTS/*
