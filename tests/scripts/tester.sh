@@ -59,7 +59,7 @@ then
 	ret=$(cat $TMP_DIR/leaks | grep -i "error summary" | awk '{ print $4 }')
 else
 	leaks -atExit -- ./$TARGET "9...7...." "2...9..53" ".6..124.." "84...1.9." "5.....8.." ".31..4..." "..37..68." ".9..5.741" "47......." > $TMP_DIR/leaks 2>&1
-	ret=$(tail -n 2 $TMP_DIR/leaks | grep -i "error summary" | awk '{ print $3 }')
+	ret=$(tail -n 2 $TMP_DIR/leaks | grep -i "leaks" | awk '{ print $3 }')
 fi
 
 if [ "$ret" == "0" ]
