@@ -31,7 +31,7 @@ or
 cd tests
 make
 ```
-which uses the example-solution to run tests.
+which uses the `example-solution/` to run tests.
 
 
 ## Contributions
