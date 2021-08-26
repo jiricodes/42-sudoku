@@ -1,5 +1,5 @@
 # 42-sudoku
-Sudoku solver is one of the 42 piscine's team project. This is reference solution and test suite for evaluating new pisciners at Hive Helsinki
+Sudoku solver is one of the 42 piscine's team project. This is a reference solution and a test suite for evaluating new pisciners at Hive Helsinki, or any other 42 school for that matter.
 
 ## example-solution
 Contains a Sudoku solver with recursive approach. Not Norm complient and not satisfying all requirements (e.g. doesn't invalidate multiple solution sudokus).
