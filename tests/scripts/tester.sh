@@ -109,7 +109,7 @@ echo ""
 echo "Preliminary tests"
 # A badly formatted grid
 title="A badly formatted grid"
-ret=$(./$TARGET "9..7...." "2...9..53" ".6..124.." "84...1.9." "5.....8.." ".31..4..." "..37..68." ".9..5.741" "47......." 2>&1)
+ret=$(./$TARGET "9...7...." "2...9..53" ".6..124.." "84...1.9." "5....8.." ".31..4..." "..37..68.." ".9..5.741" "47......." 2>&1)
 if [ "$ret" == "Error" ]
 then
 	printf "%-56s $OK\n" "$title"
@@ -120,7 +120,7 @@ fi
 
 # A wrong grid
 title="A wrong grid"
-ret=$(./$TARGET "9...7...." "2...9..53" ".6..124.." "84...1.9." "5.....8.." ".31..4..." "..37..68." ".9..5.741" 2>&1)
+ret=$(./$TARGET "9...7...." "2...9..53" ".6..124.." "84...1.9." "5.....8.." ".31..4..." "..37..68." ".9..5.741" "48......." 2>&1)
 if [ "$ret" == "Error" ]
 then
 	printf "%-56s $OK\n" "$title"
@@ -131,7 +131,7 @@ fi
 
 # A grid with bad characters
 title="A grid with bad characters"
-ret=$(./$TARGET "9.,.7...." "2...9..53" ".6..124.." "84...1.9." "5.....8.." ".31..4..." "..37..68." ".9..5.741" "47......." 2>&1)
+ret=$(./$TARGET "9...7.,.." "2...9..53" ".6..124.." "84...1.9." "5.....8.." ".31..4..." "..37..68." ".9..5.741" "48......." 2>&1)
 if [ "$ret" == "Error" ]
 then
 	printf "%-56s $OK\n" "$title"
@@ -142,7 +142,7 @@ fi
 
 # A grid with too many or too few boxes
 title="A grid with too many or too few boxes"
-ret=$(./$TARGET "9...7...." "2...9..53" ".6..124.." "84...1.9." "5.....8.." ".31..4..." "..37..68." ".9..5.741" 2>&1)
+ret=$(./$TARGET "9...7...." "2...9..53" ".6..124.." "84...1.9." "5.....8.." ".31..4..." "........." ".9..5.741" 2>&1)
 if [ "$ret" == "Error" ]
 then
 	printf "%-56s $OK\n" "$title"
@@ -158,7 +158,7 @@ echo "*** FEATURES ***************************************************"
 # Functionality tests
 echo ""
 echo "Functionality tests"
-title="Error management 2.0"
+title="Functionality tests"
 $TESTFILES $TARGET $BASEDIR/../inputs/features $BASEDIR/../expected/features
 
 # Explanations
