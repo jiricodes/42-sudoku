@@ -15,7 +15,7 @@ Contains the subject pdf as well as some links
 ## Tests
 Test suite with norminette, compilation, leaks and multiple input tests (errors, valids, different difficulty). Tested on Linux (Ubuntu 18.04) and MacOS (BigSur).
 
-Requires norminette and (if Linux) valgrind.
+Requires norminette and (if Linux) valgrind. If multiple norminettes are present or your command is non-standard `norminette`, the command can be customize on [line 7 of tester.sh](https://github.com/jiricodes/42-sudoku/blob/915dd9d9d2497c556349af9945de0203a4d1375b/tests/scripts/tester.sh#L7).
 
 ### Usage
 It is recommended to open new terminal, since first command of the script is `tput reset`, that clears the whole terminal window (including history).
