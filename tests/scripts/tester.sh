@@ -4,7 +4,7 @@
 tput reset
 tput init
 
-NORM_CMD="ruby /home/user/Documents/personal/hive/norminette-v2/norminette.rb"
+NORM_CMD="norminette"
 
 TARGET_DIR=$1
 
