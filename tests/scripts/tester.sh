@@ -4,6 +4,8 @@
 tput reset
 tput init
 
+NORM_CMD="norminette"
+
 TARGET_DIR=$1
 
 TMP_DIR=tmp
@@ -77,14 +79,14 @@ do
 done
 
 # norm test
-norm_ver=$(norminette --version)
+norm_ver=$(eval "$NORM_CMD --version | tail -n 1")
 if [ "$?" -ne "0" ]
 then
 	echo "Norminette not available"
 	exit
 fi
 
-norm=$(norminette $TARGET_DIR | grep -i "error!" )
+norm=$(eval "$NORM_CMD $TARGET_DIR" | grep -i "error")
 title=$(printf "Norm [%s]" "$norm_ver")
 if [ -z "$norm" ]
 then
